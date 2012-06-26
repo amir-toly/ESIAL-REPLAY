@@ -192,6 +192,24 @@ public class Chaine {
 		}
 	}
 	
+	public Chaine nNaturels(int n) throws ChaineVideException {
+		if (n == 0) {
+			return new Chaine();
+		} else {
+			return nNaturels(n-1).concat(new Chaine(""+n));
+		}
+	}
+	
+	public boolean palindrome() throws ChaineVideException {
+		if (estVide() || longueur() == 1) {
+			return true;
+		} else if (premier() == dernier()) {
+			return reste().saufDernier().palindrome();
+		} else {
+			return false;
+		}
+	}
+	
 	public String toString() {
 		return tete == null ? "" : tete.toString();
 	}

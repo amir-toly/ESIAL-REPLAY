@@ -218,5 +218,26 @@ public class ChaineTest {
 		chaine = new Chaine("aBcD");
 		assertEquals(false, chaine.croissante());
 	}
+	
+	@Test
+	public void testNNaturels() throws ChaineVideException {
+		assertEquals("", chaine.nNaturels(0).toString());
+		assertEquals("1", chaine.nNaturels(1).toString());
+		assertEquals("12345", chaine.nNaturels(5).toString());
+	}
+	
+	@Test
+	public void testPalindrome() throws ChaineVideException {
+		assertEquals(false, chaine.palindrome());
+		
+		chaine = new Chaine();
+		assertEquals(true, chaine.palindrome());
+		
+		chaine = new Chaine("c");
+		assertEquals(true, chaine.palindrome());
+		
+		chaine = new Chaine("été");
+		assertEquals(true, chaine.palindrome());
+	}
 }
 
