@@ -210,6 +210,28 @@ public class Chaine {
 		}
 	}
 	
+	public boolean anagramme(Chaine chaine) throws ChaineVideException {
+		if (longueur() != chaine.longueur()) {
+			return false;
+		} else if (estVide()) {
+			return true;
+		} else if (chaine.supprime(premier()).longueur() == chaine.longueur() - 1) {
+			return reste().anagramme(chaine.supprime(premier()));
+		} else {
+			return false;
+		}
+	}
+	
+	public Chaine union(Chaine chaine) throws ChaineVideException {
+		if (estVide() && chaine.estVide()) {
+			return this;
+		} else {
+			Chaine temp = concat(chaine);
+			return temp.supprimeTout(temp.premier()).union(new Chaine())
+					.adjT(temp.premier());
+		}
+	}
+	
 	public String toString() {
 		return tete == null ? "" : tete.toString();
 	}
