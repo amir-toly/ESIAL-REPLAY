@@ -7,10 +7,12 @@ import static org.junit.Assert.*;
 public class ChaineTest {
 	
 	private Chaine chaine;
+	private Chaine vide;
 	
 	@Before
 	public void before() {
 		chaine = new Chaine("chaine");
+		vide = new Chaine();
 	}
 	
 	@Test
@@ -51,9 +53,7 @@ public class ChaineTest {
 	@Test
 	public void testLongueur() {
 		assertEquals(6, chaine.longueur());
-		
-		chaine = new Chaine();
-		assertEquals(0, chaine.longueur());
+		assertEquals(0, vide.longueur());
 	}
 	
 	@Test
@@ -66,8 +66,7 @@ public class ChaineTest {
 	
 	@Test
 	public void testOccurence() throws ChaineVideException {
-		chaine = new Chaine();
-		assertEquals(0, chaine.occurence('c'));
+		assertEquals(0, vide.occurence('c'));
 		
 		chaine = new Chaine("occurence");
 		assertEquals(3, chaine.occurence('c'));
@@ -96,8 +95,7 @@ public class ChaineTest {
 	public void testTousDifferents() throws ChaineVideException {
 		assertTrue(chaine.tousDifferents());
 		
-		chaine = new Chaine();
-		assertTrue(chaine.tousDifferents());
+		assertTrue(vide.tousDifferents());
 		
 		chaine = new Chaine("occurence");
 		assertFalse(chaine.tousDifferents());
@@ -110,8 +108,7 @@ public class ChaineTest {
 		chaine = new Chaine("c");
 		assertEquals('c', chaine.dernier());
 		
-		chaine = new Chaine();
-		assertEquals('?', chaine.dernier());
+		assertEquals('?', vide.dernier());
 		//TODO(Since last assertion throws an exception, nothing can be done after)
 	}
 	
@@ -122,7 +119,7 @@ public class ChaineTest {
 		chaine = new Chaine("hi");
 		assertEquals('i', chaine.deuxieme());
 		
-		assertEquals('?', new Chaine().deuxieme());
+		assertEquals('?', vide.deuxieme());
 	}
 	
 	@Test
@@ -172,8 +169,7 @@ public class ChaineTest {
 		chaine = new Chaine("c");
 		assertEquals("c", chaine.retourne().toString());
 		
-		chaine = new Chaine();
-		assertEquals("", chaine.retourne().toString());
+		assertEquals("", vide.retourne().toString());
 	}
 	
 	@Test
@@ -181,8 +177,7 @@ public class ChaineTest {
 		assertEquals("chaine", chaine.concat(new Chaine()).toString());
 		assertEquals("chainement", chaine.concat(new Chaine("ment")).toString());
 		
-		chaine = new Chaine();
-		assertEquals("suffix", chaine.concat(new Chaine("suffix")).toString());
+		assertEquals("suffix", vide.concat(new Chaine("suffix")).toString());
 	}
 	
 	@Test(expected = ChaineVideException.class)
@@ -195,16 +190,14 @@ public class ChaineTest {
 		chaine = new Chaine("chAine");
 		assertEquals('A', chaine.minCh());
 		
-		chaine = new Chaine();
-		assertEquals('?', chaine.minCh());
+		assertEquals('?', vide.minCh());
 	}
 	
 	@Test
 	public void testCroissante() throws ChaineVideException {
 		assertEquals(false, chaine.croissante());
 		
-		chaine = new Chaine();
-		assertEquals(true, chaine.croissante());
+		assertEquals(true, vide.croissante());
 		
 		chaine = new Chaine("c");
 		assertEquals(true, chaine.croissante());
@@ -230,8 +223,7 @@ public class ChaineTest {
 	public void testPalindrome() throws ChaineVideException {
 		assertEquals(false, chaine.palindrome());
 		
-		chaine = new Chaine();
-		assertEquals(true, chaine.palindrome());
+		assertEquals(true, vide.palindrome());
 		
 		chaine = new Chaine("c");
 		assertEquals(true, chaine.palindrome());
