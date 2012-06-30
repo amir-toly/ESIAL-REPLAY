@@ -178,7 +178,7 @@ public class Chaine {
 		} else if (longueur() == 1) {
 			return premier();
 		} else {
-			return Character.compare(premier(), reste().minCh()) < 0 ?
+			return Character.valueOf(premier()).compareTo(reste().minCh()) < 0 ?
 					premier() : reste().minCh();
 		}
 	}
@@ -187,7 +187,7 @@ public class Chaine {
 		if (estVide() || longueur() == 1) {
 			return true;
 		} else {
-			return Character.compare(premier(), deuxieme()) <= 0
+			return Character.valueOf(premier()).compareTo(deuxieme()) <= 0
 					&& reste().croissante();
 		}
 	}
