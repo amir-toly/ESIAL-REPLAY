@@ -231,5 +231,32 @@ public class ChaineTest {
 		chaine = new Chaine("été");
 		assertEquals(true, chaine.palindrome());
 	}
+	
+	@Test
+	public void testAnagramme() throws ChaineVideException {
+		assertEquals(false, chaine.anagramme(new Chaine()));
+		assertEquals(false, chaine.anagramme(new Chaine("c")));
+		assertEquals(true, chaine.anagramme(new Chaine("aniche")));
+		
+		chaine = new Chaine();
+		
+		assertEquals(true, chaine.anagramme(new Chaine()));
+		assertEquals(false, chaine.anagramme(new Chaine("c")));
+		assertEquals(false, chaine.anagramme(new Chaine("caniche")));
+	}
+	
+	@Test
+	public void testUnion() throws ChaineVideException {
+		assertEquals("chaine", chaine.union(new Chaine()).toString());
+		assertEquals("chaine", chaine.union(new Chaine("c")).toString());
+		assertEquals("chaine", chaine.union(new Chaine("chaine")).toString());
+		assertEquals("chaine", chaine.union(new Chaine("eniahc")).toString());
+		assertEquals("chainet", chaine.union(new Chaine("net")).toString());
+		assertEquals("chaineou", chaine.union(new Chaine("ou")).toString());
+		
+		chaine = new Chaine("");
+		assertEquals("", chaine.union(new Chaine("")).toString());
+		assertEquals("chaine", chaine.union(new Chaine("chaine")).toString());
+	}
 }
 
