@@ -237,12 +237,10 @@ public class ChaineTest {
 		assertEquals(false, chaine.anagramme(new Chaine()));
 		assertEquals(false, chaine.anagramme(new Chaine("c")));
 		assertEquals(true, chaine.anagramme(new Chaine("aniche")));
-		
-		chaine = new Chaine();
-		
-		assertEquals(true, chaine.anagramme(new Chaine()));
-		assertEquals(false, chaine.anagramme(new Chaine("c")));
-		assertEquals(false, chaine.anagramme(new Chaine("caniche")));
+				
+		assertEquals(true, vide.anagramme(new Chaine()));
+		assertEquals(false, vide.anagramme(new Chaine("c")));
+		assertEquals(false, vide.anagramme(new Chaine("caniche")));
 	}
 	
 	@Test
@@ -254,9 +252,8 @@ public class ChaineTest {
 		assertEquals("chainet", chaine.union(new Chaine("net")).toString());
 		assertEquals("chaineou", chaine.union(new Chaine("ou")).toString());
 		
-		chaine = new Chaine("");
-		assertEquals("", chaine.union(new Chaine("")).toString());
-		assertEquals("chaine", chaine.union(new Chaine("chaine")).toString());
+		assertEquals("", vide.union(new Chaine("")).toString());
+		assertEquals("chaine", vide.union(new Chaine("chaine")).toString());
 	}
 }
 
