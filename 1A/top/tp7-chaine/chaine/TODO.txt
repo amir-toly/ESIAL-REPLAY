@@ -1,0 +1,2 @@
+Modify functions to not use supprimeTout() - Not asked by the exercise
+

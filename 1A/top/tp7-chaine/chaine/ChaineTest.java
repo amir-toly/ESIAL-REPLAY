@@ -254,6 +254,9 @@ public class ChaineTest {
 		
 		assertEquals("", vide.union(new Chaine("")).toString());
 		assertEquals("chaine", vide.union(new Chaine("chaine")).toString());
+		
+		chaine = new Chaine("enchainement");
+		assertEquals("enchaimt", chaine.union(new Chaine()).toString());
 	}
 	
 	@Test
