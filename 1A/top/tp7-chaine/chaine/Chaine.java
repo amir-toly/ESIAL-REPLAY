@@ -232,6 +232,14 @@ public class Chaine {
 		}
 	}
 	
+	public Chaine difference(Chaine chaine) throws ChaineVideException {
+		if (chaine.estVide()) {
+			return union(new Chaine());
+		} else {
+			return supprimeTout(chaine.premier()).difference(chaine.supprimeTout(chaine.premier()));
+		}
+	}
+	
 	public String toString() {
 		return tete == null ? "" : tete.toString();
 	}

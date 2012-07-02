@@ -255,5 +255,15 @@ public class ChaineTest {
 		assertEquals("", vide.union(new Chaine("")).toString());
 		assertEquals("chaine", vide.union(new Chaine("chaine")).toString());
 	}
+	
+	@Test
+	public void testDifference() throws ChaineVideException {
+		assertEquals("chaine", chaine.difference(new Chaine()).toString());
+		assertEquals("", chaine.difference(new Chaine("chaine")).toString());
+		assertEquals("hai", chaine.difference(new Chaine("occurence")).toString());
+		
+		assertEquals("", vide.difference(new Chaine()).toString());
+		assertEquals("", vide.difference(new Chaine("chaine")).toString());
+	}
 }
 
