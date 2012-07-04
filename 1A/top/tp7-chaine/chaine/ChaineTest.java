@@ -233,6 +233,30 @@ public class ChaineTest {
 	}
 	
 	@Test
+	public void testPalindromeEspaces() throws ChaineVideException {
+		assertEquals(false, chaine.palindromeEspaces());
+		assertEquals(true, vide.palindromeEspaces());
+		
+		chaine = new Chaine("esope reste et se repose");
+		assertEquals(true, chaine.palindromeEspaces());
+		
+		chaine = new Chaine(" ét é   é t  é   ");
+		assertEquals(true, chaine.palindromeEspaces());
+	}
+	
+	@Test//TODO(same as before except the method name)
+	public void testPalindromeWhile() throws ChaineVideException {
+		assertEquals(false, chaine.palindromeWhile());
+		assertEquals(true, vide.palindromeWhile());
+		
+		chaine = new Chaine("esope reste et se repose");
+		assertEquals(true, chaine.palindromeWhile());
+		
+		chaine = new Chaine(" ét é   é t  é   ");
+		assertEquals(true, chaine.palindromeWhile());
+	}
+	
+	@Test
 	public void testAnagramme() throws ChaineVideException {
 		assertEquals(false, chaine.anagramme(new Chaine()));
 		assertEquals(false, chaine.anagramme(new Chaine("c")));

@@ -210,6 +210,39 @@ public class Chaine {
 		}
 	}
 	
+	public boolean palindromeEspaces() throws ChaineVideException {
+		if (estVide() || longueur() == 1) {
+			return true;
+		} else if (premier() == dernier()) {
+			return saufDernier().reste().palindromeEspaces();
+		} else if (premier() == ' ') {
+			return reste().palindromeEspaces();
+		} else if (dernier() == ' ') {
+			return saufDernier().palindromeEspaces();
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean palindromeWhile() throws ChaineVideException {
+		if (estVide() || longueur() == 1) {
+			return true;
+		} else {
+			Chaine temp = this; // Cannot assign final variable this
+			while (temp.premier() == ' ' && temp.longueur() > 2) {
+				temp = temp.reste();
+			}
+			while (temp.dernier() == ' ' && temp.longueur() > 2) {
+				temp = temp.saufDernier();
+			}
+			if (temp.premier() == temp.dernier()) {
+				return temp.saufDernier().reste().palindromeWhile();
+			} else {
+				return false;
+			}
+		}
+	}
+	
 	public boolean anagramme(Chaine chaine) throws ChaineVideException {
 		if (longueur() != chaine.longueur()) {
 			return false;
