@@ -255,6 +255,20 @@ public class Chaine {
 		}
 	}
 	
+	public boolean anagrammeEspaces(Chaine chaine) throws ChaineVideException {
+		if (estVide() && chaine.estVide()) {
+			return true;
+		} else if (estVide() && !chaine.estVide()) {
+			return false;
+		} else if (premier() == ' ' ||
+					longueur() - chaine.supprimeTout(premier()).longueur() ==
+					chaine.longueur() - chaine.supprimeTout(premier()).longueur()) {
+			return supprimeTout(premier()).anagrammeEspaces(chaine.supprimeTout(premier()));
+		} else {
+			return false;
+		}
+	}
+	
 	public Chaine union(Chaine chaine) throws ChaineVideException {
 		if (estVide() && chaine.estVide()) {
 			return this;

@@ -268,6 +268,12 @@ public class ChaineTest {
 	}
 	
 	@Test
+	public void testAnagrammeEspaces() throws ChaineVideException {
+		Chaine truc = new Chaine("ce truc est turc");
+		assertEquals(true, truc.anagrammeEspaces(new Chaine("turc est ce truc")));
+	}
+	
+	@Test
 	public void testUnion() throws ChaineVideException {
 		assertEquals("chaine", chaine.union(new Chaine()).toString());
 		assertEquals("chaine", chaine.union(new Chaine("c")).toString());
