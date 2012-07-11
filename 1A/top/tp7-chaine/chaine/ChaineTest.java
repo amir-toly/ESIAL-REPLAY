@@ -51,6 +51,15 @@ public class ChaineTest {
 	}
 	
 	@Test
+	public void testAdjQ() {
+		assertEquals("chainet", chaine.adjQ('t').toString());
+		assertEquals("chainette",
+				chaine.adjQ('t').adjQ('e').toString());
+		
+		assertEquals("c", vide.adjQ('c').toString());
+	}
+	
+	@Test
 	public void testLongueur() {
 		assertEquals(6, chaine.longueur());
 		assertEquals(0, vide.longueur());

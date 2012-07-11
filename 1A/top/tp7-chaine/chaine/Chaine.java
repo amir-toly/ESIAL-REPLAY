@@ -46,6 +46,22 @@ public class Chaine {
 		return this;
 	}
 	
+	public Chaine adjQ(char c) {
+		Element element = new Element(c);
+		
+		if (tete == null) {
+			tete = element;
+		} else {
+			Element dernierVisible = tete;
+			while (dernierVisible.suite != null) {
+				dernierVisible = dernierVisible.suite;
+			}
+			dernierVisible.suite = element;
+		}
+		
+		return this;
+	}
+	
 	public int longueur() {
 		if (estVide()) {
 			return 0;

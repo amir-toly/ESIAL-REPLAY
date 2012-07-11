@@ -1,3 +1,4 @@
+Add pre-conditions as comments
 Modify functions to not use supprimeTout() - Not asked by the exercise
 Modify functions to use adjQ() instead of adjT()
 Does reste() function need to throw a ChaineVideException?
