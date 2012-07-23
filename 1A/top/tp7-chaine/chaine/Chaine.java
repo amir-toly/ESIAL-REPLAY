@@ -237,6 +237,16 @@ public class Chaine {
 		}
 	}
 	
+	public Chaine concatAdjQ(Chaine chaine) throws ChaineVideException {
+		if (estVide()) {
+			return chaine;
+		} else if (chaine.estVide()) {
+			return this;
+		} else {
+			return adjQ(chaine.premier()).concatAdjQ(chaine.reste());
+		}
+	}
+	
 	public char minCh() throws ChaineVideException {
 		if (estVide()) {
 			throw new ChaineVideException();

@@ -224,6 +224,14 @@ public class ChaineTest {
 		assertEquals("suffix", vide.concat(new Chaine("suffix")).toString());
 	}
 	
+	@Test//TODO(same as before except the method name)
+	public void testConcatAdjQ() throws ChaineVideException {
+		assertEquals("chaine", chaine.concatAdjQ(new Chaine()).toString());
+		assertEquals("chainement", chaine.concatAdjQ(new Chaine("ment")).toString());
+		
+		assertEquals("suffix", vide.concatAdjQ(new Chaine("suffix")).toString());
+	}
+	
 	@Test(expected = ChaineVideException.class)
 	public void testMinCh() throws ChaineVideException {
 		assertEquals('a', chaine.minCh());
