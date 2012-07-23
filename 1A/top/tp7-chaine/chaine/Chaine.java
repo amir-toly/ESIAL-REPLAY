@@ -221,6 +221,14 @@ public class Chaine {
 		}
 	}
 	
+	public Chaine retourneAdjQ() throws ChaineVideException {
+		if (estVide() || longueur() == 1) {
+			return this;
+		} else {
+			return reste().retourneAdjQ().adjQ(premier());
+		}
+	}
+	
 	public Chaine concat(Chaine chaine) throws ChaineVideException {
 		if (estVide()) {
 			return chaine;

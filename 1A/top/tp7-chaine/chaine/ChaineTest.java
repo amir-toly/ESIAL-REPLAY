@@ -197,6 +197,25 @@ public class ChaineTest {
 		assertEquals("", vide.retourne().toString());
 	}
 	
+	@Test//TODO(same as before except the method name)
+	public void testRetourneAdjQ() throws ChaineVideException {
+		assertEquals("eniahc", chaine.retourneAdjQ().toString());
+		
+		chaine = new Chaine("été");
+		assertEquals("été", chaine.retourneAdjQ().toString());
+		
+		chaine = new Chaine("occurence");
+		assertEquals("ecnerucco", chaine.retourneAdjQ().toString());
+		
+		chaine = new Chaine("vu");
+		assertEquals("uv", chaine.retourneAdjQ().toString());
+		
+		chaine = new Chaine("c");
+		assertEquals("c", chaine.retourneAdjQ().toString());
+		
+		assertEquals("", vide.retourneAdjQ().toString());
+	}
+	
 	@Test
 	public void testConcat() throws ChaineVideException {
 		assertEquals("chaine", chaine.concat(new Chaine()).toString());
