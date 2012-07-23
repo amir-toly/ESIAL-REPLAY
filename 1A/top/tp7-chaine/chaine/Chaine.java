@@ -100,6 +100,29 @@ public class Chaine {
 		}
 	}
 	
+	public Chaine supprimeAdjQ(char c) throws ChaineVideException {
+		if (estVide()) {
+			return this;
+		} else {
+			Chaine tempChaine = this;
+			Chaine temp = new Chaine();
+			boolean trouve = false;
+			while (!tempChaine.reste().estVide()) {
+				if (tempChaine.premier() != c) { // Need to do a check here...
+					temp = temp.adjQ(tempChaine.premier());
+				} else { // ... or we'll search for the character from the end
+					trouve = true;
+				}
+				tempChaine = tempChaine.reste();
+			}
+			if (c == tempChaine.premier() && !trouve) {
+				return temp;
+			} else {
+				return temp.supprimeAdjQ(c).adjQ(tempChaine.premier());
+			}
+		}
+	}
+	
 	public Chaine supprimeTout(char c) throws ChaineVideException {
 		if (estVide()) {
 			return this;
@@ -107,6 +130,24 @@ public class Chaine {
 			return reste().supprimeTout(c);
 		} else {
 			return reste().supprimeTout(c).adjT(premier());
+		}
+	}
+	
+	public Chaine supprimeToutAdjQ(char c) throws ChaineVideException {
+		if (estVide()) {
+			return this;
+		} else {
+			Chaine tempChaine = this;
+			Chaine temp = new Chaine();
+			while (!tempChaine.reste().estVide()) {
+				temp = temp.adjQ(tempChaine.premier());
+				tempChaine = tempChaine.reste();
+			}
+			if (c == tempChaine.premier()) {
+				return temp.supprimeToutAdjQ(c);
+			} else {
+				return temp.supprimeToutAdjQ(c).adjQ(tempChaine.premier());
+			}
 		}
 	}
 	

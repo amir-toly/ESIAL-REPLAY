@@ -92,12 +92,28 @@ public class ChaineTest {
 		assertEquals("occurnce", chaine.supprime('e').toString());
 	}
 	
+	@Test//TODO(same as before except the method name)
+	public void testSupprimeAdjQ() throws ChaineVideException {
+		chaine = new Chaine("occurence");
+		assertEquals("occurence", chaine.supprimeAdjQ('a').toString());
+		assertEquals("ccurence", chaine.supprimeAdjQ('o').toString());
+		assertEquals("occurnce", chaine.supprimeAdjQ('e').toString());
+	}
+	
 	@Test
 	public void testSupprimeTout() throws ChaineVideException {
 		chaine = new Chaine("occurence");
 		assertEquals("occurence", chaine.supprimeTout('a').toString());
 		assertEquals("ccurence", chaine.supprimeTout('o').toString());
 		assertEquals("occurnc", chaine.supprimeTout('e').toString());
+	}
+	
+	@Test//TODO(same as before except the method name)
+	public void testSupprimeToutAdjQ() throws ChaineVideException {
+		chaine = new Chaine("occurence");
+		assertEquals("occurence", chaine.supprimeToutAdjQ('a').toString());
+		assertEquals("ccurence", chaine.supprimeToutAdjQ('o').toString());
+		assertEquals("occurnc", chaine.supprimeToutAdjQ('e').toString());
 	}
 	
 	@Test
