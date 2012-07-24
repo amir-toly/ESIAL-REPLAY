@@ -213,6 +213,14 @@ public class Chaine {
 		}
 	}
 	
+	public Chaine nDerniersAdjQ(int n) throws ChaineVideException {
+		if (n == 0) {
+			return new Chaine();
+		} else {
+			return saufDernier().nDerniersAdjQ(n-1).adjQ(dernier());
+		}
+	}
+	
 	public Chaine retourne() throws ChaineVideException {
 		if (estVide() || longueur() == 1) {
 			return this;
