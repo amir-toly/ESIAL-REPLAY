@@ -155,6 +155,14 @@ public class ChaineTest {
 		assertEquals("", chaine.saufDernier().toString());
 	}
 	
+	@Test//TODO(same as before except the method name)
+	public void testSaufDernierAdjQ() throws ChaineVideException {
+		assertEquals("chain", chaine.saufDernierAdjQ().toString());
+		
+		chaine = new Chaine("c");
+		assertEquals("", chaine.saufDernierAdjQ().toString());
+	}
+	
 	@Test
 	public void testNieme() throws ChaineVideException {
 		assertEquals('c', chaine.nieme(1));

@@ -189,6 +189,17 @@ public class Chaine {
 		}
 	}
 	
+	public Chaine saufDernierAdjQ() throws ChaineVideException {
+		//TODO(NOT recursive)
+		Chaine temp = this;
+		Chaine result = new Chaine();
+		while (!temp.reste().estVide()) {
+			result.adjQ(temp.premier());
+			temp = temp.reste();
+		}
+		return result;
+	}
+	
 	public char nieme(int n) throws ChaineVideException {
 		if (n == 1) {
 			return premier();
