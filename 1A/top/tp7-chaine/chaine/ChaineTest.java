@@ -288,6 +288,25 @@ public class ChaineTest {
 		assertEquals(false, chaine.croissante());
 	}
 	
+	@Test//TODO(same as before except the method name)
+	public void testCroissanteOptimisee() throws ChaineVideException {
+		assertEquals(false, chaine.croissanteOptimisee());
+		
+		assertEquals(true, vide.croissanteOptimisee());
+		
+		chaine = new Chaine("c");
+		assertEquals(true, chaine.croissanteOptimisee());
+		
+		chaine = new Chaine("abcd");
+		assertEquals(true, chaine.croissanteOptimisee());
+		
+		chaine = new Chaine("ABCD");
+		assertEquals(true, chaine.croissanteOptimisee());
+		
+		chaine = new Chaine("aBcD");
+		assertEquals(false, chaine.croissanteOptimisee());
+	}
+	
 	@Test
 	public void testNNaturels() throws ChaineVideException {
 		assertEquals("", chaine.nNaturels(0).toString());

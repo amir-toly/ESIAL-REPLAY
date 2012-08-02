@@ -295,6 +295,16 @@ public class Chaine {
 		}
 	}
 	
+	public boolean croissanteOptimisee() throws ChaineVideException {
+		if (estVide() || longueur() == 1) {
+			return true;
+		} else if (Character.valueOf(premier()).compareTo(deuxieme()) <= 0) {
+			return reste().croissanteOptimisee();
+		} else {
+			return false;
+		}
+	}
+	
 	public Chaine nNaturels(int n) throws ChaineVideException {
 		if (n == 0) {
 			return new Chaine();
