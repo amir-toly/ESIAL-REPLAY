@@ -216,6 +216,15 @@ public class Chaine {
 		}
 	}
 	
+	public Chaine nPremiersAdjQ(int n) throws ChaineVideException {
+		//TODO(NOT related AT ALL to adjQ())
+		if (longueur() == n) {
+			return this;
+		} else {
+			return saufDernier().nPremiersAdjQ(n);
+		}
+	}
+	
 	public Chaine nDerniers(int n) {
 		if (n == longueur()) {
 			return this;

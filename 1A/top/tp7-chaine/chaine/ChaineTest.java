@@ -178,6 +178,14 @@ public class ChaineTest {
 		assertEquals("chaine", chaine.nPremiers(chaine.longueur()).toString());
 	}
 	
+	@Test//TODO(same as before except the method name)
+	public void testNPremiersAdjQ() throws ChaineVideException {
+		assertEquals("", chaine.nPremiersAdjQ(0).toString());
+		assertEquals("c", chaine.nPremiersAdjQ(1).toString());
+		assertEquals("cha", chaine.nPremiersAdjQ(3).toString());
+		assertEquals("chaine", chaine.nPremiersAdjQ(chaine.longueur()).toString());
+	}
+	
 	@Test
 	public void testNDerniers() {
 		assertEquals("", chaine.nDerniers(0).toString());
