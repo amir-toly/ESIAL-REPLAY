@@ -26,12 +26,18 @@ public class Chaine {
 		return tete == null;
 	}
 	
+	/**
+	 * Precondition: !this.estVide()
+	 */
 	public Chaine reste() {
 		Chaine result = new Chaine(this);
 		result.tete = result.tete.suite;
 		return result;
 	}
 	
+	/**
+	 * Precondition: !this.estVide()
+	 */
 	public char premier() throws ChaineVideException {
 		if (estVide()) {
 			throw new ChaineVideException();
@@ -161,6 +167,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: !this.estVide()
+	 */
 	public char dernier() throws ChaineVideException {
 		if (estVide()) {
 			throw new ChaineVideException();
@@ -173,6 +182,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: this.longueur() >= 2
+	 */
 	public char deuxieme() throws ChaineVideException {
 		if (estVide() || reste().estVide()) {
 			throw new ChaineVideException("Can be performed only on, "+
@@ -181,6 +193,9 @@ public class Chaine {
 		return reste().premier();
 	}
 	
+	/**
+	 * Precondition: !this.estVide()
+	 */
 	public Chaine saufDernier() throws ChaineVideException {
 		if (reste().estVide()) {
 			return new Chaine();
@@ -189,6 +204,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: !this.estVide()
+	 */
 	public Chaine saufDernierAdjQ() throws ChaineVideException {
 		//TODO(NOT recursive)
 		Chaine temp = this;
@@ -200,6 +218,9 @@ public class Chaine {
 		return result;
 	}
 	
+	/**
+	 * Precondition: !this.estVide() && n >= 0 && n <= this.longueur()-1
+	 */
 	public char nieme(int n) throws ChaineVideException {
 		if (n == 1) {
 			return premier();
@@ -208,6 +229,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: n >= 0 && n <= this.longueur()
+	 */
 	public Chaine nPremiers(int n) throws ChaineVideException {
 		if (n == 0) {
 			return new Chaine();
@@ -216,6 +240,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: n >= 0 && n <= this.longueur()
+	 */
 	public Chaine nPremiersAdjQ(int n) throws ChaineVideException {
 		//TODO(NOT related AT ALL to adjQ())
 		if (longueur() == n) {
@@ -225,6 +252,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: n >= 0 && n <= this.longueur()
+	 */
 	public Chaine nDerniers(int n) {
 		if (n == longueur()) {
 			return this;
@@ -233,6 +263,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: n >= 0 && n <= this.longueur()
+	 */
 	public Chaine nDerniersAdjQ(int n) throws ChaineVideException {
 		if (n == 0) {
 			return new Chaine();
@@ -275,6 +308,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: !this.estVide()
+	 */
 	public char minCh() throws ChaineVideException {
 		if (estVide()) {
 			throw new ChaineVideException();
@@ -305,6 +341,9 @@ public class Chaine {
 		}
 	}
 	
+	/**
+	 * Precondition: n >= 0
+	 */
 	public Chaine nNaturels(int n) throws ChaineVideException {
 		if (n == 0) {
 			return new Chaine();
