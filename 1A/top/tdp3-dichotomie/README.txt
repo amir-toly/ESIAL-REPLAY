@@ -1,2 +1,2 @@
-In this exercise, we will define a recursive function to find an element in a sorted array, using dichotomy.
+In this exercise, we will define a recursive function to find an element in an ascendant array, using dichotomy.
 
