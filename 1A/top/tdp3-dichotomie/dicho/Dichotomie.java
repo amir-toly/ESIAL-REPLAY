@@ -3,7 +3,7 @@ package dicho;
 public class Dichotomie {
 	
 	public int find(int element, int[] tab, int borneInf, int borneSup) {
-		if (borneInf >= borneSup) {
+		if (borneInf == borneSup) {
 			return -1;
 		} else {
 			int median = borneInf + borneSup;
