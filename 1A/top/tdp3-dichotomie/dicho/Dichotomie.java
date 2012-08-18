@@ -19,6 +19,27 @@ public class Dichotomie {
 	 * @return				the element index if found, -1 otherwise
 	 */
 	public int find(int element, int[] tab, int borneInf, int borneSup) {
+		// Defensive programming...
+		String msg = "";
+		for (int i=0;i<tab.length-1;i++) {
+			if (tab[i] > tab[i+1]) {
+				msg += "\n - the tab array must be sorted in ascending order";
+				break;
+			}
+		}
+		if (borneInf < 1)
+			msg += "\n - the borneInf parameter must be greater or equal to 1";
+		if (borneInf > borneSup) // "or equal" is checked in stop condition
+			msg += "\n - the borneInf parameter must be lower than the borneSup parameter";
+		if (borneSup > tab.length)
+			msg += "\n - the borneSup parameter must be lower or equal to tab.length";
+		
+		if (!msg.isEmpty()) {
+			System.out.println("Missing preconditions:"+msg);
+			return -1;
+		}//TODO(Is it my -the function- job to check the preconditions?) 
+		// ... Defensive programming
+		
 		// Retrieve actual indexes
 		borneInf--;
 		borneSup--;
